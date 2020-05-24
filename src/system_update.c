@@ -17,12 +17,20 @@
 #include "system_update.h"
 
 // Text colours.
-#define RED "\x1B[31m"
-#define GREEN "\x1B[32m"
-#define YELLOW "\x1B[33m"
 #define BLUE "\x1B[34m"
-#define MAGENTA "\x1B[35m"
 #define CYAN "\x1B[36m"
+#define GREEN "\x1B[32m"
+#define MAGENTA "\x1B[35m"
+#define RED "\x1B[31m"
+#define YELLOW "\x1B[33m"
+
+#define LIGHT_BLUE "\x1B[94m"
+#define LIGHT_CYAN "\x1B[96m"
+#define LIGHT_GREEN "\x1B[92m"
+#define LIGHT_MAGENTA "\x1B[95m"
+#define LIGHT_RED "\x1B[91m"
+#define LIGHT_YELLOW "\x1B[93m"
+
 #define WHITE "\x1B[37m"
 
 #define BOLD "\x1B[1m"
@@ -35,12 +43,18 @@ void system_update(void)
 	// # Define Variables #
 	// ####################
 
+	// Program Metadata.
+	const char *PROGRAM_VERSION = "0.0.1";
+	const char *PROGRAM_URL =
+		"https://github.com/ultraviolet-1986/linux_software_updater";
+
 	// Environmental Variables.
 	char *HOME = getenv("HOME");
 
 	// Native System Package Managers.
 	const char *APT_PATH = "/usr/bin/apt";
 	const char *DNF_PATH = "/usr/bin/dnf";
+	const char *RPM_OSTREE_PATH = "/usr/bin/rpm-ostree";
 
 	// Universal Package Managers.
 	const char *FLATPAK_PATH = "/usr/bin/flatpak";
@@ -60,9 +74,19 @@ void system_update(void)
 	// # Kickstart #
 	// #############
 
+	// Clear the screen.
+	system("clear");
+
 	// Display program header.
-	printf("\n" BOLD "Linux System Software Update Utility " RESET "\n");
-	printf(BOLD "Copyright (C) 2020 William Whinn" RESET "\n\n");
+	printf(BLUE BOLD "Linux System Software Update Utility ");
+	printf(PROGRAM_VERSION);
+	printf(RESET "\n");
+
+	printf(BLUE);
+	printf(PROGRAM_URL);
+	printf(RESET "\n");
+
+	printf(BLUE "Copyright (C) 2020 William Whinn" RESET "\n\n");
 
 	// Native distribution package managers.
 	if (access(APT_PATH, F_OK) != -1)
@@ -78,6 +102,14 @@ void system_update(void)
 		// Success: DNF is installed. Update the system.
 		printf(YELLOW "DNF System Software Section" RESET "\n");
 		system("sudo dnf update --refresh");
+		printf("\n");
+	}
+	else if (access(RPM_OSTREE_PATH, F_OK) != -1)
+	{
+		// Success: RPM-OSTree is installed. Update the system.
+		printf(YELLOW "RPM-OSTree System Software Section" RESET "\n");
+		system("rpm-ostree refresh-md");
+		system("rpm-ostree upgrade");
 		printf("\n");
 	}
 	else
@@ -109,7 +141,8 @@ void system_update(void)
 	if (access(ANACONDA3_PATH, F_OK) != -1)
 	{
 		// Success: Anaconda3 is installed. Update packages.
-		printf(YELLOW "Anaconda 3 Python Distribution Section" RESET "\n");
+		printf(YELLOW "Anaconda 3 Python Distribution Section" RESET
+			"\n");
 		system("conda update conda");
 		system("conda update anaconda");
 	}
