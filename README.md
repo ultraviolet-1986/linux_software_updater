@@ -10,12 +10,9 @@ At present, these are the known package managers supported by this program:
 - **APT** (Debian / Ubuntu)
 - **DNF** (CentOS / Fedora)
 - **RPM-OSTree** (Fedora Silverblue)
-
 - **Flatpak** (Universal)
 - **Snap** (Universal)
-
 - **Anadonda 3** (Python, user-installed)
-
 - **ClamAV**
 
 ## Build and Run
