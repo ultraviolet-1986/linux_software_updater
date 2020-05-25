@@ -45,7 +45,7 @@ int check_network()
 
 	if (connect(sockfd, (struct sockaddr *) &addr, sizeof(addr)) != 0)
 	{
-		return 1; // Error.
+		return 1; // Error
 	}
 	else
 	{
