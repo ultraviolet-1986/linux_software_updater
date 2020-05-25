@@ -25,10 +25,7 @@
 // # Defines #
 // ###########
 
-#define BLUE "\x1B[34m"
 #define RED "\x1B[31m"
-
-#define BOLD "\x1B[1m"
 #define RESET "\x1B[0m"
 
 // #############
