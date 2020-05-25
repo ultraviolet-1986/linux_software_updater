@@ -14,23 +14,29 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef SYSTEM_UPDATE_H
-#define SYSTEM_UPDATE_H
+// ##############
+// # References #
+// ##############
+
+// https://bbs.archlinux.org/viewtopic.php?id=213878
+
+#ifndef CHECK_NETWORK_H
+#define CHECK_NETWORK_H
 
 // ############
 // # Includes #
 // ############
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
 #include <unistd.h>
 
 // #############
 // # Functions #
 // #############
 
-void system_update();
+int check_network();
 
 #endif
 

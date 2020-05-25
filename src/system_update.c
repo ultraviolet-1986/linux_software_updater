@@ -14,7 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+// ############
+// # Includes #
+// ############
+
 #include "system_update.h"
+
+// ###########
+// # Defines #
+// ###########
 
 // Text colours.
 #define BLUE "\x1B[34m"
@@ -37,16 +45,15 @@
 #define UNDERLINE "\x1B[4m"
 #define RESET "\x1B[0m"
 
-void system_update(void)
-{
-	// ####################
-	// # Define Variables #
-	// ####################
+// #############
+// # Functions #
+// #############
 
-	// Program Metadata.
-	const char *PROGRAM_VERSION = "0.0.1";
-	const char *PROGRAM_URL =
-		"https://github.com/ultraviolet-1986/linux_software_updater";
+void system_update()
+{
+	// #############
+	// # Variables #
+	// #############
 
 	// Environmental Variables.
 	char *HOME = getenv("HOME");
@@ -73,20 +80,6 @@ void system_update(void)
 	// #############
 	// # Kickstart #
 	// #############
-
-	// Clear the screen.
-	system("clear");
-
-	// Display program header.
-	printf(BLUE BOLD "Linux System Software Update Utility ");
-	printf(PROGRAM_VERSION);
-	printf(RESET "\n");
-
-	printf(BLUE);
-	printf(PROGRAM_URL);
-	printf(RESET "\n");
-
-	printf(BLUE "Copyright (C) 2020 William Whinn" RESET "\n\n");
 
 	// Native distribution package managers.
 	if (access(APT_PATH, F_OK) != -1)
@@ -157,7 +150,7 @@ void system_update(void)
 	}
 
 	// All Updating tasks complete
-	printf(GREEN "System software has been updated" RESET "\n\n");
+	printf(GREEN "System software has been updated." RESET "\n\n");
 }
 
 // End of File.

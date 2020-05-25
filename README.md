@@ -22,7 +22,7 @@ distribution which has a working `gcc` installation.
 
 ```bash
 # Build the executable.
-gcc -std=c11 main.c system_update.c -o system_update
+gcc -std=c11 main.c check_network.c system_update.c -o system_update
 
 # Launch the program.
 ./system_update

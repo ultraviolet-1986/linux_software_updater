@@ -14,24 +14,45 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef SYSTEM_UPDATE_H
-#define SYSTEM_UPDATE_H
+// ##############
+// # References #
+// ##############
+
+// https://bbs.archlinux.org/viewtopic.php?id=213878
 
 // ############
 // # Includes #
 // ############
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "check_network.h"
 
 // #############
 // # Functions #
 // #############
 
-void system_update();
+int check_network()
+{
+	// #############
+	// # Variables #
+	// #############
 
-#endif
+	int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+	struct sockaddr_in addr = { AF_INET, htons(80), inet_addr("1.1.1.1") };
+
+	// #############
+	// # Kickstart #
+	// #############
+
+	if (connect(sockfd, (struct sockaddr *) &addr, sizeof(addr)) != 0)
+	{
+		return 1; // Error.
+	}
+	else
+	{
+		return 0; // Success
+	}
+
+	close(sockfd);
+}
 
 // End of File.

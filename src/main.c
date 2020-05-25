@@ -14,13 +14,74 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-#include "system_update.h"
+// ############
+// # Includes #
+// ############
 
-#include <stdio.h>
+#include "system_update.h"
+#include "check_network.h"
+
+// ###########
+// # Defines #
+// ###########
+
+#define BLUE "\x1B[34m"
+#define RED "\x1B[31m"
+
+#define BOLD "\x1B[1m"
+#define RESET "\x1B[0m"
+
+// #############
+// # Functions #
+// #############
 
 int main()
 {
-	system_update();
+	// #############
+	// # Variables #
+	// #############
+
+	// Program Metadata.
+	const char *PROGRAM_VERSION = "0.0.2";
+	const char *PROGRAM_URL =
+		"https://github.com/ultraviolet-1986/linux_software_updater";
+
+	// Internet connection status.
+	int internet_connection = check_network();
+
+	// #############
+	// # Kickstart #
+	// #############
+
+	// Clear the screen.
+	system("clear");
+
+	// Display program header.
+	printf(BLUE BOLD "Linux System Software Update Utility ");
+	printf(PROGRAM_VERSION);
+	printf(RESET "\n");
+
+	printf(BLUE);
+	printf(PROGRAM_URL);
+	printf(RESET "\n");
+
+	printf(BLUE "Copyright (C) 2020 William Whinn" RESET "\n\n");
+
+	// Detect Internet Connection and proceed.
+	if (internet_connection == 0)
+	{
+		system_update();
+	}
+	else if (internet_connection == 1)
+	{
+		printf(RED "ERROR: An active Internet connection is required.\n\n"
+			RESET);
+	}
+	else
+	{
+		printf(RED "ERROR: An unknown error occurred.\n\n" RESET);
+	}
+
 	return 0;
 }
 
