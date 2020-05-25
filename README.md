@@ -72,6 +72,9 @@ These commands should succeed and allow the program to run under any GNU/Linux
 distribution which has a working `gcc` installation. This program was written in
 a Fedora Workstation 32 (x86_64) environment with no additional dependencies.
 
+Note that source code is contained within the `src` directory and so these
+commands must be run from that location within your Terminal.
+
 ```bash
 # Build the executable.
 gcc -std=c11 main.c check_network.c software_updater.c -o software_updater
