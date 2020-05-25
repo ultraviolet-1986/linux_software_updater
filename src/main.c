@@ -78,12 +78,11 @@ int main(int argc, char *argv[])
 	}
 	else if (internet_connection == 1)
 	{
-		printf(RED "ERROR: An active Internet connection is required.\n\n"
-			RESET);
+		printf(RED "ERROR: An active Internet connection is required.\n" RESET);
 	}
 	else
 	{
-		printf(RED "ERROR: An unknown error occurred.\n\n" RESET);
+		printf(RED "ERROR: An unknown error occurred.\n" RESET);
 	}
 
 	return 0;
