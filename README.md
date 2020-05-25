@@ -74,10 +74,10 @@ a Fedora Workstation 32 (x86_64) environment with no additional dependencies.
 
 ```bash
 # Build the executable.
-gcc -std=c11 main.c check_network.c system_update.c -o system_update
+gcc -std=c11 main.c check_network.c software_updater.c -o software_updater
 
 # Launch the program.
-./system_update
+./software_updater
 ```
 
 ## References

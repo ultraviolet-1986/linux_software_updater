@@ -18,7 +18,7 @@
 // # Includes #
 // ############
 
-#include "system_update.h"
+#include "software_updater.h"
 #include "check_network.h"
 
 // ###########
@@ -35,39 +35,43 @@
 // # Functions #
 // #############
 
-int main()
+int main(int argc, char *argv[])
 {
 	// #############
 	// # Variables #
 	// #############
 
 	// Program Metadata.
-	const char *PROGRAM_VERSION = "0.0.2";
+	const char *PROGRAM_VERSION = "0.0.3";
 	const char *PROGRAM_URL =
 		"https://github.com/ultraviolet-1986/linux_software_updater";
-
-	// Internet connection status.
-	int internet_connection = check_network();
 
 	// #############
 	// # Kickstart #
 	// #############
 
-	// Clear the screen.
-	system("clear");
+	// Parse any given command-line arguments.
+	if (argc == 2 && strcmp(argv[1], "--help") == 0)
+	{
+		printf("Usage: software_updater [OPTION]\n\n");
+		printf("  --version\tDisplay version information\n");
+		printf("  --help\tDisplay this help and exit\n");
+		return 0;
+	}
+	else if (argc == 2 && strcmp(argv[1], "--version") == 0)
+	{
+		printf("Linux Software Updater ");
+		printf(PROGRAM_VERSION);
+		printf("\n");
+		printf("Copyright (C) 2020 William Whinn\n");
+		printf(PROGRAM_URL);
+		printf("\n");
+		return 0;
+	}
 
-	// Display program header.
-	printf(BLUE BOLD "Linux System Software Update Utility ");
-	printf(PROGRAM_VERSION);
-	printf(RESET "\n");
+	// Detect Internet connection and proceed.
+	int internet_connection = check_network();
 
-	printf(BLUE);
-	printf(PROGRAM_URL);
-	printf(RESET "\n");
-
-	printf(BLUE "Copyright (C) 2020 William Whinn" RESET "\n\n");
-
-	// Detect Internet Connection and proceed.
 	if (internet_connection == 0)
 	{
 		system_update();
