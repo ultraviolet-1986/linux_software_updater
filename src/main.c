@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 	// #############
 
 	// Program Metadata.
-	const char *PROGRAM_VERSION = "0.0.3";
+	const char *PROGRAM_VERSION = "0.0.4";
 	const char *PROGRAM_URL =
 		"https://github.com/ultraviolet-1986/linux_software_updater";
 
@@ -63,6 +63,11 @@ int main(int argc, char *argv[])
 		printf("Copyright (C) 2020 William Whinn\n");
 		printf(PROGRAM_URL);
 		printf("\n");
+		return 0;
+	}
+	else if (argc >= 3)
+	{
+		printf(RED "ERROR: Too many arguments passed.\n" RESET);
 		return 0;
 	}
 
