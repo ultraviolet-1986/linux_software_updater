@@ -52,7 +52,8 @@ int main(int argc, char *argv[])
 	{
 		printf("Usage: software_updater [OPTION]\n\n");
 		printf("  --version\tDisplay version information\n");
-		printf("  --help\tDisplay this help and exit\n");
+		printf("  --help\tDisplay this help and exit\n\n");
+
 		return 0;
 	}
 	else if (argc == 2 && strcmp(argv[1], "--version") == 0)
@@ -62,12 +63,13 @@ int main(int argc, char *argv[])
 		printf("\n");
 		printf("Copyright (C) 2020 William Whinn\n");
 		printf(PROGRAM_URL);
-		printf("\n");
+		printf("\n\n");
+
 		return 0;
 	}
 	else if (argc >= 3)
 	{
-		printf(RED "ERROR: Too many arguments passed.\n" RESET);
+		printf(RED "ERROR: Too many arguments passed.\n\n" RESET);
 		return 0;
 	}
 
@@ -80,11 +82,11 @@ int main(int argc, char *argv[])
 	}
 	else if (internet_connection == 1)
 	{
-		printf(RED "ERROR: An active Internet connection is required.\n" RESET);
+		printf(RED "ERROR: An active Internet connection is required.\n\n" RESET);
 	}
 	else
 	{
-		printf(RED "ERROR: An unknown error occurred.\n" RESET);
+		printf(RED "ERROR: An unknown error occurred.\n\n" RESET);
 	}
 
 	return 0;

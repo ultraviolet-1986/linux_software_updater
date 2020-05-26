@@ -85,5 +85,5 @@ gcc -std=c11 main.c check_network.c software_updater.c -o software_updater
 
 ## References
 
-- **`check_network.h` / `check_network.c`**
+- **`check_network.h`** / **`check_network.c`**
   - <https://bbs.archlinux.org/viewtopic.php?id=213878>
