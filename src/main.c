@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 	// Program Metadata.
 	const char *PROGRAM_VERSION = "0.0.6";
 	const char *PROGRAM_URL =
-		"https://github.com/ultraviolet-1986/linux_software_updater";
+		"https://github.com/ultraviolet-1986/linux_sysupdate";
 
 	// #############
 	// # Kickstart #
