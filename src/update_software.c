@@ -165,8 +165,7 @@ void update_software()
 	{
 		// Success: Anaconda3 is installed. Update packages.
 		printf(YELLOW "Update Anaconda 3 Python Distribution" RESET "\n");
-		system("conda update conda");
-		system("conda update anaconda");
+		system("conda update --all");
 	}
 
 	// ClamAV virus definition update.
