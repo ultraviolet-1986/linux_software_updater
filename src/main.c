@@ -64,13 +64,9 @@ int main(int argc, char *argv[])
 	}
 	else if (argc == 2 && strcmp(argv[1], "--version") == 0)
 	{
-		printf("sysupdate ");
-		printf("%s", PROGRAM_VERSION);
-		printf("\n");
+		printf("sysupdate %s\n", PROGRAM_VERSION);
 		printf("Copyright (C) 2020 William Whinn\n");
-		printf("<");
-		printf("%s", PROGRAM_URL);
-		printf(">\n");
+		printf("<%s>\n", PROGRAM_URL);
 		printf("License GPLv3+: GNU GPL version 3 or later "
 				"<https://gnu.org/licenses/gpl.html>.\n");
 		printf("This is free software: you are free to change and "
