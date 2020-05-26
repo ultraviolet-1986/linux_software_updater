@@ -39,9 +39,10 @@ These package managers typically form the foundation of a standard Linux
 distribution and as such, they are to be considered essential. This program will
 attempt to detect these and exit if none are detected.
 
-- **APT** (Debian / Ubuntu)
-- **DNF** (CentOS / Fedora)
-- **RPM-OSTree** (Fedora Silverblue)
+- **APT** (Debian / Ubuntu / Mint or compatible)
+- **DNF** (CentOS / Fedora / RHEL or compatible)
+- **Pacman** (Arch or compatible)
+- **RPM-OSTree** (Fedora Silverblue or compatible)
 
 ### Universal Package Managers
 

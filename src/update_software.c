@@ -46,6 +46,7 @@ void update_software()
 	// Native System Package Managers.
 	const char *APT_PATH = "/usr/bin/apt";
 	const char *DNF_PATH = "/usr/bin/dnf";
+	const char *PACMAN_PATH = "/usr/bin/pacman";
 	const char *RPM_OSTREE_PATH = "/usr/bin/rpm-ostree";
 
 	// Universal Package Managers.
@@ -69,6 +70,7 @@ void update_software()
 	// Native distribution package managers.
 	if (access(APT_PATH, F_OK) != -1)
 	{
+		// Distribution most likely Ubuntu or compatible.
 		// Success: APT is installed. Update the system.
 		printf(YELLOW "Update APT System Software" RESET "\n");
 		system("sudo apt update");
@@ -78,13 +80,23 @@ void update_software()
 	}
 	else if (access(DNF_PATH, F_OK) != -1)
 	{
+		// Distribution most likely CentOS/Fedora/RHEL or compatible.
 		// Success: DNF is installed. Update the system.
 		printf(YELLOW "Update DNF System Software" RESET "\n");
 		system("sudo dnf update --refresh");
 		printf("\n");
 	}
+	else if (access(PACMAN_PATH, F_OK) != 1)
+	{
+		// Distribution most likely Arch Linux or compatible.
+		// Success: Pacman is installed. Update the System.
+		printf(YELLOW "Update Pacman System Software" RESET "\n");
+		system("sudo pacman -Syu");
+		printf("\n");
+	}
 	else if (access(RPM_OSTREE_PATH, F_OK) != -1)
 	{
+		// Distribution most likely Fedora Silverblue or compatible.
 		// Success: RPM-OSTree is installed. Update the system.
 		printf(YELLOW "Update RPM-OSTree System Software" RESET "\n");
 		system("rpm-ostree refresh-md");
