@@ -52,4 +52,5 @@ Mkfile.old
 dkms.conf
 
 # Additional files
+.vscode
 software_updater

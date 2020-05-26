@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 	// #############
 
 	// Program Metadata.
-	const char *PROGRAM_VERSION = "0.0.4";
+	const char *PROGRAM_VERSION = "0.0.5";
 	const char *PROGRAM_URL =
 		"https://github.com/ultraviolet-1986/linux_software_updater";
 
@@ -51,8 +51,8 @@ int main(int argc, char *argv[])
 	if (argc == 2 && strcmp(argv[1], "--help") == 0)
 	{
 		printf("Usage: software_updater [OPTION]\n\n");
-		printf("  --version\tDisplay version information\n");
-		printf("  --help\tDisplay this help and exit\n\n");
+		printf("  --version\tDisplay version information.\n");
+		printf("  --help\tDisplay this help and exit.\n\n");
 
 		return 0;
 	}
@@ -63,13 +63,19 @@ int main(int argc, char *argv[])
 		printf("\n");
 		printf("Copyright (C) 2020 William Whinn\n");
 		printf(PROGRAM_URL);
-		printf("\n\n");
+		printf("\n");
+		printf("License GPLv3+: GNU GPL version 3 or later "
+			"<https://gnu.org/licenses/gpl.html>.\n");
+		printf("This is free software: you are free to change and "
+			"redistribute it.\n");
+		printf("There is NO WARRANTY, to the extent permitted by law.\n");
+		printf("\n");
 
 		return 0;
 	}
 	else if (argc >= 3)
 	{
-		printf(RED "ERROR: Too many arguments passed.\n\n" RESET);
+		printf(RED "ERROR: Too many arguments passed.\n" RESET);
 		return 0;
 	}
 
@@ -82,11 +88,11 @@ int main(int argc, char *argv[])
 	}
 	else if (internet_connection == 1)
 	{
-		printf(RED "ERROR: An active Internet connection is required.\n\n" RESET);
+		printf(RED "ERROR: An active Internet connection is required.\n" RESET);
 	}
 	else
 	{
-		printf(RED "ERROR: An unknown error occurred.\n\n" RESET);
+		printf(RED "ERROR: An unknown error occurred.\n" RESET);
 	}
 
 	return 0;
