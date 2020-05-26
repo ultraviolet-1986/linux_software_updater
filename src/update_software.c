@@ -49,6 +49,7 @@ void update_software()
 	const char *EOPKG_PATH = "/usr/bin/eopkg";
 	const char *PACMAN_PATH = "/usr/bin/pacman";
 	const char *RPM_OSTREE_PATH = "/usr/bin/rpm-ostree";
+	const char *XBPS_INSTALL_PATH = "usr/bin/xbps-install";
 	const char *ZYPPER_PATH = "usr/bin/zypper";
 
 	// Universal Package Managers.
@@ -114,6 +115,14 @@ void update_software()
 		system("rpm-ostree refresh-md");
 		printf("\n");
 		system("rpm-ostree upgrade");
+		printf("\n");
+	}
+	else if (access(XBPS_INSTALL_PATH, F_OK) != -1)
+	{
+		// Distribution most likely Void or compatible.
+		// Success: XBPS-INSTALL is installed. Update the system.
+		printf(YELLOW "Update XBPS System Software" RESET "\n");
+		system("sudo xbps-install -Su");
 		printf("\n");
 	}
 	else if (access(ZYPPER_PATH, F_OK) != -1)

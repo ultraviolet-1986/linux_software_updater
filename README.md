@@ -44,6 +44,7 @@ attempt to detect these and exit if none are detected.
 - **EOPKG** (Solus or compatible)
 - **Pacman** (Arch or compatible)
 - **RPM-OSTree** (Fedora Silverblue or compatible)
+- **XBPS-INSTALL** (Void or compatible)
 - **Zypper** (SLE / openSUSE or compatible)
 
 ### Universal Package Managers
