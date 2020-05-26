@@ -46,8 +46,10 @@ void update_software()
 	// Native System Package Managers.
 	const char *APT_PATH = "/usr/bin/apt";
 	const char *DNF_PATH = "/usr/bin/dnf";
+	const char *EOPKG_PATH = "/usr/bin/eopkg";
 	const char *PACMAN_PATH = "/usr/bin/pacman";
 	const char *RPM_OSTREE_PATH = "/usr/bin/rpm-ostree";
+	const char *ZYPPER_PATH = "usr/bin/zypper";
 
 	// Universal Package Managers.
 	const char *FLATPAK_PATH = "/usr/bin/flatpak";
@@ -86,7 +88,17 @@ void update_software()
 		system("sudo dnf update --refresh");
 		printf("\n");
 	}
-	else if (access(PACMAN_PATH, F_OK) != 1)
+	else if (access(EOPKG_PATH, F_OK) != -1)
+	{
+		// Distribution most likely Solus or compatible.
+		// Success: EOPKG is installed. Update the system.
+		printf(YELLOW "Update EOPKG System Software" RESET "\n");
+		system("sudo eopkg update-repo");
+		printf("\n");
+		system("sudo eopkg upgrade");
+		printf("\n");
+	}
+	else if (access(PACMAN_PATH, F_OK) != -1)
 	{
 		// Distribution most likely Arch Linux or compatible.
 		// Success: Pacman is installed. Update the System.
@@ -102,6 +114,16 @@ void update_software()
 		system("rpm-ostree refresh-md");
 		printf("\n");
 		system("rpm-ostree upgrade");
+		printf("\n");
+	}
+	else if (access(ZYPPER_PATH, F_OK) != -1)
+	{
+		// Distribution most likely openSUSE or compatible.
+		// Success: Zypper is installed. Update the system.
+		printf(YELLOW "Update Zypper System Software" RESET "\n");
+		system("sudo zypper refresh");
+		printf("\n");
+		system("sudo zypper update");
 		printf("\n");
 	}
 	else

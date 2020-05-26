@@ -40,9 +40,11 @@ distribution and as such, they are to be considered essential. This program will
 attempt to detect these and exit if none are detected.
 
 - **APT** (Debian / Ubuntu / Mint or compatible)
-- **DNF** (CentOS / Fedora / RHEL or compatible)
+- **DNF** (CentOS 8+ / Fedora / RHEL 8+ or compatible)
+- **EOPKG** (Solus or compatible)
 - **Pacman** (Arch or compatible)
 - **RPM-OSTree** (Fedora Silverblue or compatible)
+- **Zypper** (SLE / openSUSE or compatible)
 
 ### Universal Package Managers
 
