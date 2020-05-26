@@ -1,4 +1,4 @@
-// Linux Software Updater: A program which updates all known package managers.
+// sysupdate: A program which updates all known package managers.
 // Copyright (C) 2020 William Willis Whinn
 
 // This program is free software: you can redistribute it and/or modify
@@ -30,7 +30,7 @@
 // # Functions #
 // #############
 
-void system_update();
+void update_software();
 
 #endif
 

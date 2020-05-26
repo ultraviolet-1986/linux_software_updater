@@ -1,4 +1,4 @@
-// Linux Software Updater: A program which updates all known package managers.
+// sysupdate: A program which updates all known package managers.
 // Copyright (C) 2020 William Willis Whinn
 
 // This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 // # Includes #
 // ############
 
-#include "software_updater.h"
+#include "update_software.h"
 
 // ###########
 // # Defines #
@@ -34,7 +34,7 @@
 // # Functions #
 // #############
 
-void system_update()
+void update_software()
 {
 	// #############
 	// # Variables #
@@ -70,23 +70,25 @@ void system_update()
 	if (access(APT_PATH, F_OK) != -1)
 	{
 		// Success: APT is installed. Update the system.
-		printf(YELLOW "APT System Software Section" RESET "\n");
+		printf(YELLOW "Update APT System Software" RESET "\n");
 		system("sudo apt update");
+		printf("\n");
 		system("sudo apt full-upgrade");
 		printf("\n");
 	}
 	else if (access(DNF_PATH, F_OK) != -1)
 	{
 		// Success: DNF is installed. Update the system.
-		printf(YELLOW "DNF System Software Section" RESET "\n");
+		printf(YELLOW "Update DNF System Software" RESET "\n");
 		system("sudo dnf update --refresh");
 		printf("\n");
 	}
 	else if (access(RPM_OSTREE_PATH, F_OK) != -1)
 	{
 		// Success: RPM-OSTree is installed. Update the system.
-		printf(YELLOW "RPM-OSTree System Software Section" RESET "\n");
+		printf(YELLOW "Update RPM-OSTree System Software" RESET "\n");
 		system("rpm-ostree refresh-md");
+		printf("\n");
 		system("rpm-ostree upgrade");
 		printf("\n");
 	}
@@ -102,7 +104,7 @@ void system_update()
 	if (access(FLATPAK_PATH, F_OK) != -1)
 	{
 		// Success: Flatpak is installed. Update the system.
-		printf(YELLOW "Flatpak Universal Software Section" RESET "\n");
+		printf(YELLOW "Update Flatpak Universal Software" RESET "\n");
 		system("flatpak update");
 		printf("\n");
 	}
@@ -110,7 +112,7 @@ void system_update()
 	if (access(SNAP_PATH, F_OK) != -1)
 	{
 		// Success: SNAP is installed. Update the system.
-		printf(YELLOW "Snap Universal Software Section" RESET "\n");
+		printf(YELLOW "Update Snap Universal Software" RESET "\n");
 		system("snap refresh");
 		printf("\n");
 	}
@@ -119,8 +121,7 @@ void system_update()
 	if (access(ANACONDA3_PATH, F_OK) != -1)
 	{
 		// Success: Anaconda3 is installed. Update packages.
-		printf(YELLOW "Anaconda 3 Python Distribution Section" RESET
-			"\n");
+		printf(YELLOW "Update Anaconda 3 Python Distribution" RESET "\n");
 		system("conda update conda");
 		system("conda update anaconda");
 	}
@@ -129,7 +130,7 @@ void system_update()
 	if (access(FRESHCLAM_PATH, F_OK) != -1)
 	{
 		// Success: ClamAV is installed. Update Antivirus definitions.
-		printf(YELLOW "ClamAV Antivirus Definitions Update" RESET "\n");
+		printf(YELLOW "Update ClamAV Antivirus Definitions" RESET "\n");
 		system("sudo freshclam");
 		printf("\n");
 	}

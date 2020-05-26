@@ -1,4 +1,4 @@
-# Linux Software Updater
+# sysupdate
 
 A program which attempts to connect to known package managers and update all
 system software.
@@ -77,10 +77,10 @@ commands must be run from that location within your Terminal.
 
 ```bash
 # Build the executable.
-gcc -std=c11 main.c check_network.c software_updater.c -o software_updater
+gcc -std=c11 main.c check_network.c update_software.c -o sysupdate
 
 # Launch the program.
-./software_updater
+./sysupdate
 ```
 
 ## References
