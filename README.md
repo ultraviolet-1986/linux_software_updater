@@ -6,6 +6,7 @@ system software on a GNU/Linux system.
 ## Table of Contents
 
 - [Introduction](#introduction)
+- [Supported Command-Line Arguments](#supported-command-line-arguments)
 - [Currently Supported Software](#currently-supported-software)
   - [Native Package Managers](#native-package-managers)
   - [Universal Package Managers](#universal-package-managers)
