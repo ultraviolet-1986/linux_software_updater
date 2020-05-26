@@ -18,13 +18,13 @@ system software.
 
 This program has been built with a single function in mind: to provide a
 junction to all known package managers included within a typical desktop Linux
-distribution and perform all software upgrade tasks at-once. Each package
+distribution, and perform all software upgrade tasks at-once. Each package
 manager or piece of software (listed below) will only attempt an update if they
 are installed. For example, this program will not attempt to update an Ubuntu
 system using Fedora's update manager.
 
-Native package managers are tested for initially and in the absence of these,
-the program will halt. This is to ensure that this program is only operating in
+Native package managers are tested for initially, and in the absence of these
+the program will stop. This is to ensure that this program is only operating in
 a familiar environment and will not attempt to update an operating system which
 is unknown. New Linux distribution and package management software will be added
 on an ad-hoc basic as and when they can be thoroughly tested.
@@ -57,7 +57,7 @@ continue, ignoring these technologies.
 These packages contain additional software which form (for example) additional
 programming languages and version managers.
 
-- **Anadonda 3** (Python, user-installed)
+- **Anaconda 3** (Python, user-installed)
 
 ### Additional Software
 
