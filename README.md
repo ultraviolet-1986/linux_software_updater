@@ -1,7 +1,7 @@
 # sysupdate
 
 A program which attempts to connect to known package managers and update all
-system software.
+system software on a GNU/Linux system.
 
 ## Table of Contents
 
