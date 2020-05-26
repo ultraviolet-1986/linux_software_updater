@@ -29,6 +29,16 @@ a familiar environment and will not attempt to update an operating system which
 is unknown. New Linux distribution and package management software will be added
 on an ad-hoc basic as and when they can be thoroughly tested.
 
+## Supported Command-Line Arguments
+
+`sysupdate` can make use of the following command-line arguments to display
+information regarding version, license, and help.
+
+```bash
+sysupdate --help     # Display help and exit.
+sysupdate --version  # Display version/license information.
+```
+
 ## Currently Supported Software
 
 At present, these are the known package managers supported by this program:
