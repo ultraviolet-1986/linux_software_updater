@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 	// #############
 
 	// Program Metadata.
-	const char *PROGRAM_VERSION = "0.1.1";
+	const char *PROGRAM_VERSION = "0.1.2";
 	const char *PROGRAM_URL = "https://github.com/ultraviolet-1986/sysupdate";
 
 	// #############
@@ -54,15 +54,17 @@ int main(int argc, char *argv[])
 	#endif
 
 	// Parse any given command-line arguments.
-	if (argc == 2 && strcmp(argv[1], "--help") == 0)
+	if (argc == 2 && strcmp(argv[1], "--help") == 0 ||
+		argc == 2 && strcmp(argv[1], "-h") == 0)
 	{
 		printf("Usage: sysupdate [OPTION]\n\n");
-		printf("  --version\tDisplay version information.\n");
-		printf("  --help\tDisplay this help and exit.\n\n");
+		printf("  -v, --version\t\tDisplay version information.\n");
+		printf("  -h, --help\t\tDisplay this help and exit.\n\n");
 
 		return 0;
 	}
-	else if (argc == 2 && strcmp(argv[1], "--version") == 0)
+	else if (argc == 2 && strcmp(argv[1], "--version") == 0 ||
+		argc == 2 && strcmp(argv[1], "-v") == 0)
 	{
 		printf("sysupdate %s\n", PROGRAM_VERSION);
 		printf("Copyright (C) 2020 William Whinn\n");
@@ -77,7 +79,9 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 	else if (argc == 2 && strcmp(argv[1], "--help") != 0 ||
-				argc == 2 && strcmp(argv[1], "--version") != 0)
+				argc == 2 && strcmp(argv[1], "--version") != 0 ||
+				argc == 2 && strcmp(argv[1], "-h") != 0 ||
+				argc == 2 && strcmp(argv[1], "-v") != 0)
 	{
 		printf(RED "ERROR: An invalid argument was provided." RESET "\n");
 		return 0;
