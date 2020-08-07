@@ -18,8 +18,8 @@
 // # Includes #
 // ############
 
-#include "check_network.h"
-#include "update_software.h"
+#include "check_network.c"
+#include "update_software.c"
 
 // ###########
 // # Defines #
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 	// #############
 
 	// Program Metadata.
-	const char *PROGRAM_VERSION = "0.1.2";
+	const char *PROGRAM_VERSION = "0.1.3";
 	const char *PROGRAM_URL = "https://github.com/ultraviolet-1986/sysupdate";
 
 	// #############

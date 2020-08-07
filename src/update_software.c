@@ -76,9 +76,9 @@ void update_software()
 		// Distribution most likely Ubuntu or compatible.
 		// Success: APT is installed. Update the system.
 		printf(YELLOW "Update APT System Software" RESET "\n");
-		system("sudo apt update");
+		system("sudo -S apt update");
 		printf("\n");
-		system("sudo apt full-upgrade");
+		system("sudo -S apt full-upgrade");
 		printf("\n");
 	}
 	else if (access(DNF_PATH, F_OK) != -1)
@@ -86,7 +86,7 @@ void update_software()
 		// Distribution most likely CentOS/Fedora/RHEL or compatible.
 		// Success: DNF is installed. Update the system.
 		printf(YELLOW "Update DNF System Software" RESET "\n");
-		system("sudo dnf update --refresh");
+		system("sudo -S dnf update --refresh");
 		printf("\n");
 	}
 	else if (access(EOPKG_PATH, F_OK) != -1)
@@ -94,9 +94,9 @@ void update_software()
 		// Distribution most likely Solus or compatible.
 		// Success: EOPKG is installed. Update the system.
 		printf(YELLOW "Update EOPKG System Software" RESET "\n");
-		system("sudo eopkg update-repo");
+		system("sudo -S eopkg update-repo");
 		printf("\n");
-		system("sudo eopkg upgrade");
+		system("sudo -S eopkg upgrade");
 		printf("\n");
 	}
 	else if (access(PACMAN_PATH, F_OK) != -1)
@@ -104,7 +104,7 @@ void update_software()
 		// Distribution most likely Arch Linux or compatible.
 		// Success: Pacman is installed. Update the System.
 		printf(YELLOW "Update Pacman System Software" RESET "\n");
-		system("sudo pacman -Syu");
+		system("sudo -S pacman -Syu");
 		printf("\n");
 	}
 	else if (access(RPM_OSTREE_PATH, F_OK) != -1)
@@ -122,7 +122,7 @@ void update_software()
 		// Distribution most likely Void or compatible.
 		// Success: XBPS-INSTALL is installed. Update the system.
 		printf(YELLOW "Update XBPS System Software" RESET "\n");
-		system("sudo xbps-install -Su");
+		system("sudo -S xbps-install -Su");
 		printf("\n");
 	}
 	else if (access(ZYPPER_PATH, F_OK) != -1)
@@ -130,9 +130,9 @@ void update_software()
 		// Distribution most likely openSUSE or compatible.
 		// Success: Zypper is installed. Update the system.
 		printf(YELLOW "Update Zypper System Software" RESET "\n");
-		system("sudo zypper refresh");
+		system("sudo -S zypper refresh");
 		printf("\n");
-		system("sudo zypper update");
+		system("sudo -S zypper update");
 		printf("\n");
 	}
 	else
@@ -175,7 +175,7 @@ void update_software()
 	{
 		// Success: ClamAV is installed. Update Antivirus definitions.
 		printf(YELLOW "Update ClamAV Antivirus Definitions" RESET "\n");
-		system("sudo freshclam");
+		system("sudo -S freshclam");
 		printf("\n");
 	}
 
