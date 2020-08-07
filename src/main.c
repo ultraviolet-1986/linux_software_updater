@@ -18,8 +18,8 @@
 // # Includes #
 // ############
 
-#include "check_network.c"
-#include "update_software.c"
+#include "check_network.h"
+#include "update_software.h"
 
 // ###########
 // # Defines #
