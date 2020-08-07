@@ -92,7 +92,7 @@ commands must be run from that location within your Terminal.
 
 ```bash
 # Build the executable.
-gcc -std=c11 main.c check_network.c update.software.c -o sysupdate
+gcc -std=c11 main.c check_network.c update_software.c -o sysupdate
 
 # Launch the program.
 ./sysupdate
