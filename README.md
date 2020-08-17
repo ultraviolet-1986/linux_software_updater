@@ -36,6 +36,8 @@ on an ad-hoc basic as and when they can be thoroughly tested.
 information regarding version, license, and help.
 
 ```bash
+sysupdate -h         # Display help and exit.
+sysupdate -v         # Display version/license information.
 sysupdate --help     # Display help and exit.
 sysupdate --version  # Display version/license information.
 ```
