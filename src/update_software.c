@@ -36,160 +36,160 @@
 
 void update_software()
 {
-	// #############
-	// # Variables #
-	// #############
+    // #############
+    // # Variables #
+    // #############
 
-	// Environmental Variables.
-	char *HOME = getenv("HOME");
+    // Environmental Variables.
+    char *HOME = getenv("HOME");
 
-	// Native System Package Managers.
-	const char *APT_PATH = "/usr/bin/apt";
-	const char *DNF_PATH = "/usr/bin/dnf";
-	const char *EOPKG_PATH = "/usr/bin/eopkg";
-	const char *PACMAN_PATH = "/usr/bin/pacman";
-	const char *RPM_OSTREE_PATH = "/usr/bin/rpm-ostree";
-	const char *XBPS_INSTALL_PATH = "usr/bin/xbps-install";
-	const char *ZYPPER_PATH = "usr/bin/zypper";
+    // Native System Package Managers.
+    const char *APT_PATH = "/usr/bin/apt";
+    const char *DNF_PATH = "/usr/bin/dnf";
+    const char *EOPKG_PATH = "/usr/bin/eopkg";
+    const char *PACMAN_PATH = "/usr/bin/pacman";
+    const char *RPM_OSTREE_PATH = "/usr/bin/rpm-ostree";
+    const char *XBPS_INSTALL_PATH = "usr/bin/xbps-install";
+    const char *ZYPPER_PATH = "usr/bin/zypper";
 
-	// Universal Package Managers.
-	const char *FLATPAK_PATH = "/usr/bin/flatpak";
-	const char *SNAP_PATH = "/usr/bin/snap";
+    // Universal Package Managers.
+    const char *FLATPAK_PATH = "/usr/bin/flatpak";
+    const char *SNAP_PATH = "/usr/bin/snap";
 
-	// Build the Anaconda 3 executable string (user-installed).
-	char *ANACONDA3_PATH_INCOMPLETE = "/anaconda3/bin/conda";
-	char *ANACONDA3_PATH = malloc(strlen(HOME) +
-		strlen(ANACONDA3_PATH_INCOMPLETE) * sizeof(char) + 1);
-	strcpy(ANACONDA3_PATH, HOME);
-	strcat(ANACONDA3_PATH, ANACONDA3_PATH_INCOMPLETE);
+    // Build the Anaconda 3 executable string (user-installed).
+    char *ANACONDA3_PATH_INCOMPLETE = "/anaconda3/bin/conda";
+    char *ANACONDA3_PATH = malloc(strlen(HOME) +
+        strlen(ANACONDA3_PATH_INCOMPLETE) * sizeof(char) + 1);
+    strcpy(ANACONDA3_PATH, HOME);
+    strcat(ANACONDA3_PATH, ANACONDA3_PATH_INCOMPLETE);
 
-	// Build the Miniconda 3 executable string (user-installed).
-	char *MINICONDA3_PATH_INCOMPLETE = "/miniconda3/bin/conda";
-	char *MINICONDA3_PATH = malloc(strlen(HOME) +
-		strlen(MINICONDA3_PATH_INCOMPLETE) * sizeof(char) + 1);
-	strcpy(MINICONDA3_PATH, HOME);
-	strcat(MINICONDA3_PATH, MINICONDA3_PATH_INCOMPLETE);
+    // Build the Miniconda 3 executable string (user-installed).
+    char *MINICONDA3_PATH_INCOMPLETE = "/miniconda3/bin/conda";
+    char *MINICONDA3_PATH = malloc(strlen(HOME) +
+        strlen(MINICONDA3_PATH_INCOMPLETE) * sizeof(char) + 1);
+    strcpy(MINICONDA3_PATH, HOME);
+    strcat(MINICONDA3_PATH, MINICONDA3_PATH_INCOMPLETE);
 
-	// ClamAV Antivirus.
-	const char *FRESHCLAM_PATH = "/usr/bin/freshclam";
+    // ClamAV Antivirus.
+    const char *FRESHCLAM_PATH = "/usr/bin/freshclam";
 
-	// #############
-	// # Kickstart #
-	// #############
+    // #############
+    // # Kickstart #
+    // #############
 
-	// Native distribution package managers.
-	if (access(APT_PATH, F_OK) != -1)
-	{
-		// Distribution most likely Ubuntu or compatible.
-		// Success: APT is installed. Update the system.
-		printf(YELLOW "Update APT System Software" RESET "\n");
-		system("sudo -S apt update");
-		printf("\n");
-		system("sudo -S apt full-upgrade");
-		printf("\n");
-	}
-	else if (access(DNF_PATH, F_OK) != -1)
-	{
-		// Distribution most likely CentOS/Fedora/RHEL or compatible.
-		// Success: DNF is installed. Update the system.
-		printf(YELLOW "Update DNF System Software" RESET "\n");
-		system("sudo -S dnf update --refresh");
-		printf("\n");
-	}
-	else if (access(EOPKG_PATH, F_OK) != -1)
-	{
-		// Distribution most likely Solus or compatible.
-		// Success: EOPKG is installed. Update the system.
-		printf(YELLOW "Update EOPKG System Software" RESET "\n");
-		system("sudo -S eopkg update-repo");
-		printf("\n");
-		system("sudo -S eopkg upgrade");
-		printf("\n");
-	}
-	else if (access(PACMAN_PATH, F_OK) != -1)
-	{
-		// Distribution most likely Arch Linux or compatible.
-		// Success: Pacman is installed. Update the System.
-		printf(YELLOW "Update Pacman System Software" RESET "\n");
-		system("sudo -S pacman -Syu");
-		printf("\n");
-	}
-	else if (access(RPM_OSTREE_PATH, F_OK) != -1)
-	{
-		// Distribution most likely Fedora Silverblue or compatible.
-		// Success: RPM-OSTree is installed. Update the system.
-		printf(YELLOW "Update RPM-OSTree System Software" RESET "\n");
-		system("rpm-ostree refresh-md");
-		printf("\n");
-		system("rpm-ostree upgrade");
-		printf("\n");
-	}
-	else if (access(XBPS_INSTALL_PATH, F_OK) != -1)
-	{
-		// Distribution most likely Void or compatible.
-		// Success: XBPS-INSTALL is installed. Update the system.
-		printf(YELLOW "Update XBPS System Software" RESET "\n");
-		system("sudo -S xbps-install -Su");
-		printf("\n");
-	}
-	else if (access(ZYPPER_PATH, F_OK) != -1)
-	{
-		// Distribution most likely openSUSE or compatible.
-		// Success: Zypper is installed. Update the system.
-		printf(YELLOW "Update Zypper System Software" RESET "\n");
-		system("sudo -S zypper refresh");
-		printf("\n");
-		system("sudo -S zypper update");
-		printf("\n");
-	}
-	else
-	{
-		// Package manager was not installed on the system.
-		printf(RED "ERROR: A supported package manager was not detected." RESET
-			"\n");
-		exit(0);
-	}
+    // Native distribution package managers.
+    if (access(APT_PATH, F_OK) != -1)
+    {
+        // Distribution most likely Ubuntu or compatible.
+        // Success: APT is installed. Update the system.
+        printf(YELLOW "Update APT System Software" RESET "\n");
+        system("sudo -S apt update");
+        printf("\n");
+        system("sudo -S apt full-upgrade");
+        printf("\n");
+    }
+    else if (access(DNF_PATH, F_OK) != -1)
+    {
+        // Distribution most likely CentOS/Fedora/RHEL or compatible.
+        // Success: DNF is installed. Update the system.
+        printf(YELLOW "Update DNF System Software" RESET "\n");
+        system("sudo -S dnf update --refresh");
+        printf("\n");
+    }
+    else if (access(EOPKG_PATH, F_OK) != -1)
+    {
+        // Distribution most likely Solus or compatible.
+        // Success: EOPKG is installed. Update the system.
+        printf(YELLOW "Update EOPKG System Software" RESET "\n");
+        system("sudo -S eopkg update-repo");
+        printf("\n");
+        system("sudo -S eopkg upgrade");
+        printf("\n");
+    }
+    else if (access(PACMAN_PATH, F_OK) != -1)
+    {
+        // Distribution most likely Arch Linux or compatible.
+        // Success: Pacman is installed. Update the System.
+        printf(YELLOW "Update Pacman System Software" RESET "\n");
+        system("sudo -S pacman -Syu");
+        printf("\n");
+    }
+    else if (access(RPM_OSTREE_PATH, F_OK) != -1)
+    {
+        // Distribution most likely Fedora Silverblue or compatible.
+        // Success: RPM-OSTree is installed. Update the system.
+        printf(YELLOW "Update RPM-OSTree System Software" RESET "\n");
+        system("rpm-ostree refresh-md");
+        printf("\n");
+        system("rpm-ostree upgrade");
+        printf("\n");
+    }
+    else if (access(XBPS_INSTALL_PATH, F_OK) != -1)
+    {
+        // Distribution most likely Void or compatible.
+        // Success: XBPS-INSTALL is installed. Update the system.
+        printf(YELLOW "Update XBPS System Software" RESET "\n");
+        system("sudo -S xbps-install -Su");
+        printf("\n");
+    }
+    else if (access(ZYPPER_PATH, F_OK) != -1)
+    {
+        // Distribution most likely openSUSE or compatible.
+        // Success: Zypper is installed. Update the system.
+        printf(YELLOW "Update Zypper System Software" RESET "\n");
+        system("sudo -S zypper refresh");
+        printf("\n");
+        system("sudo -S zypper update");
+        printf("\n");
+    }
+    else
+    {
+        // Package manager was not installed on the system.
+        printf(RED "ERROR: A supported package manager was not detected." RESET
+            "\n");
+        exit(0);
+    }
 
-	// Universal Package Managers: Flatpak.
-	if (access(FLATPAK_PATH, F_OK) != -1)
-	{
-		// Success: Flatpak is installed. Update the system.
-		printf(YELLOW "Update Flatpak Universal Software" RESET "\n");
-		system("flatpak update");
-		printf("\n");
-	}
+    // Universal Package Managers: Flatpak.
+    if (access(FLATPAK_PATH, F_OK) != -1)
+    {
+        // Success: Flatpak is installed. Update the system.
+        printf(YELLOW "Update Flatpak Universal Software" RESET "\n");
+        system("flatpak update");
+        printf("\n");
+    }
 
-	// Universal Package Managers: Snap.
-	if (access(SNAP_PATH, F_OK) != -1)
-	{
-		// Success: SNAP is installed. Update the system.
-		printf(YELLOW "Update Snap Universal Software" RESET "\n");
-		system("snap refresh");
-		printf("\n");
-	}
+    // Universal Package Managers: Snap.
+    if (access(SNAP_PATH, F_OK) != -1)
+    {
+        // Success: SNAP is installed. Update the system.
+        printf(YELLOW "Update Snap Universal Software" RESET "\n");
+        system("snap refresh");
+        printf("\n");
+    }
 
-	// Update an Anaconda/Miniconda 3 installation.
-	if (access(ANACONDA3_PATH, F_OK) != -1 ||
-		access(MINICONDA3_PATH, F_OK) != -1)
-	{
-		// Success: Anaconda 3 is installed. Update packages.
-		printf(YELLOW "Update Anaconda/Miniconda 3 Python Distribution" RESET
-			"\n");
-		system("conda update --all");
-		printf("\n");
-	}
+    // Update an Anaconda/Miniconda 3 installation.
+    if (access(ANACONDA3_PATH, F_OK) != -1 ||
+        access(MINICONDA3_PATH, F_OK) != -1)
+    {
+        // Success: Anaconda 3 is installed. Update packages.
+        printf(YELLOW "Update Anaconda/Miniconda 3 Python Distribution" RESET
+            "\n");
+        system("conda update --all");
+        printf("\n");
+    }
 
-	// ClamAV virus definition update.
-	if (access(FRESHCLAM_PATH, F_OK) != -1)
-	{
-		// Success: ClamAV is installed. Update Antivirus definitions.
-		printf(YELLOW "Update ClamAV Antivirus Definitions" RESET "\n");
-		system("sudo -S freshclam");
-		printf("\n");
-	}
+    // ClamAV virus definition update.
+    if (access(FRESHCLAM_PATH, F_OK) != -1)
+    {
+        // Success: ClamAV is installed. Update Antivirus definitions.
+        printf(YELLOW "Update ClamAV Antivirus Definitions" RESET "\n");
+        system("sudo -S freshclam");
+        printf("\n");
+    }
 
-	// All Updating tasks complete
-	printf(GREEN "System software has been updated." RESET "\n\n");
+    // All Updating tasks complete
+    printf(GREEN "System software has been updated." RESET "\n\n");
 }
 
 // End of File.
