@@ -168,8 +168,8 @@ void update_software()
 	}
 
 	// Update an Anaconda/Miniconda 3 installation.
-	if (access(ANACONDA3_PATH, F_OK) != -1) ||
-		(access(MINICONDA3_PATH, F_OK) != -1)
+	if (access(ANACONDA3_PATH, F_OK) != -1 ||
+		access(MINICONDA3_PATH, F_OK) != -1)
 	{
 		// Success: Anaconda 3 is installed. Update packages.
 		printf(YELLOW "Update Anaconda/Miniconda Python Distribution" RESET
