@@ -150,7 +150,7 @@ void update_software()
 		exit(0);
 	}
 
-	// Universal software package managers.
+	// Universal Package Managers: Flatpak.
 	if (access(FLATPAK_PATH, F_OK) != -1)
 	{
 		// Success: Flatpak is installed. Update the system.
@@ -159,6 +159,7 @@ void update_software()
 		printf("\n");
 	}
 
+	// Universal Package Managers: Snap.
 	if (access(SNAP_PATH, F_OK) != -1)
 	{
 		// Success: SNAP is installed. Update the system.
