@@ -63,6 +63,13 @@ void update_software()
 	strcpy(ANACONDA3_PATH, HOME);
 	strcat(ANACONDA3_PATH, ANACONDA3_PATH_INCOMPLETE);
 
+	// Build the Miniconda 3 executable string (user-installed).
+	char *MINICONDA3_PATH_INCOMPLETE = "/miniconda3/bin/conda";
+	char *MINICONDA3_PATH = malloc(strlen(HOME) +
+		strlen(MINICONDA3_PATH_INCOMPLETE) * sizeof(char) + 1);
+	strcpy(MINICONDA3_PATH, HOME);
+	strcat(MINICONDA3_PATH, MINICONDA3_PATH_INCOMPLETE);
+
 	// ClamAV Antivirus.
 	const char *FRESHCLAM_PATH = "/usr/bin/freshclam";
 
@@ -160,10 +167,11 @@ void update_software()
 		printf("\n");
 	}
 
-	// Update an Anaconda3 installation.
-	if (access(ANACONDA3_PATH, F_OK) != -1)
+	// Update an Anaconda/Miniconda 3 installation.
+	if (access(ANACONDA3_PATH, F_OK) != -1) ||
+		(access(MINICONDA3_PATH, F_OK) != -1)
 	{
-		// Success: Anaconda/Miniconda 3 is installed. Update packages.
+		// Success: Anaconda 3 is installed. Update packages.
 		printf(YELLOW "Update Anaconda/Miniconda Python Distribution" RESET
 			"\n");
 		system("conda update --all");
