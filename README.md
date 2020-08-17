@@ -74,7 +74,8 @@ continue, ignoring these technologies.
 These packages contain additional software which form (for example) additional
 programming languages and version managers.
 
-- **Anaconda/Miniconda 3** (Python, user-installed at `~/anaconda3`)
+- **Anaconda/Miniconda 3** (Python, user-installed at `~/anaconda3` or
+  `~/miniconda3`)
 
 ### Additional Software
 
