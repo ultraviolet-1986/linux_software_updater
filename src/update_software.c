@@ -47,6 +47,7 @@ void update_software()
     const char *APT_PATH = "/usr/bin/apt";
     const char *DNF_PATH = "/usr/bin/dnf";
     const char *EOPKG_PATH = "/usr/bin/eopkg";
+    const char *PACKAGEKIT_PATH = "/usr/bin/pkcon";
     const char *PACMAN_PATH = "/usr/bin/pacman";
     const char *RPM_OSTREE_PATH = "/usr/bin/rpm-ostree";
     const char *XBPS_INSTALL_PATH = "usr/bin/xbps-install";
@@ -78,7 +79,20 @@ void update_software()
     // #############
 
     // Native distribution package managers.
-    if (access(APT_PATH, F_OK) != -1)
+    if (access(PACKAGEKIT_PATH, F_OK) != -1)
+    {
+        // Evaluate this first because it often pairs with other package
+        // managers and this can interfere with stability on systems
+        // such as KDE Neon.
+
+        // Success: PackageKit is installed. Update the system.
+        printf(YELLOW "Update PackageKit System Software" RESET "\n");
+        system("pkcon refresh force");
+        printf("\n");
+        system("sudo -S pkcon update");
+        printf("\n");
+    }
+    else if (access(APT_PATH, F_OK) != -1)
     {
         // Distribution most likely Ubuntu or compatible.
         // Success: APT is installed. Update the system.

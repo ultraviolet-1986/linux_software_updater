@@ -9,6 +9,7 @@ system software on a GNU/Linux system.
 - [Supported Command-Line Arguments](#supported-command-line-arguments)
 - [Currently Supported Software](#currently-supported-software)
   - [Native Package Managers](#native-package-managers)
+    - [Regarding PackageKit](#regarding-packagekit)
   - [Universal Package Managers](#universal-package-managers)
   - [Software Distributions](#software-distributions)
   - [Additional Software](#additional-software)
@@ -55,10 +56,20 @@ attempt to detect these and exit if none are detected.
 - **APT** (Debian / Ubuntu / Mint or compatible)
 - **DNF** (CentOS 8+ / Fedora / RHEL 8+ or compatible)
 - **EOPKG** (Solus or compatible)
+- **PackageKit** (KDE Neon or compatible)
 - **Pacman** (Arch or compatible)
 - **RPM-OSTree** (Fedora Silverblue or compatible)
 - **XBPS** (Void or compatible)
 - **Zypper** (SLE / openSUSE or compatible)
+
+#### Regarding PackageKit
+
+Note that `PackageKit` may also be present on these systems as a secondary
+package manager and performs the same tasks as their counterpart of `APT` or
+`DNF` (for example). With this in mind, `sysupdate` will attempt to update using
+`PackageKit` instead to ensure system stability - Operating Systems such as
+**KDE Neon** will not fetch *all* system updates using `APT` alone and this will
+eventually break the system and neglect important security updates.
 
 ### Universal Package Managers
 
@@ -105,3 +116,6 @@ gcc -std=c11 main.c check_network.c update_software.c -o sysupdate
 
 - **`check_network.h`** / **`check_network.c`**
   - <https://bbs.archlinux.org/viewtopic.php?id=213878>
+
+- **Evaluate PackageKit before other Package Managers**
+  - <https://neon.kde.org/faq#command-to-update>
