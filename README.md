@@ -68,8 +68,9 @@ Note that `PackageKit` may also be present on these systems as a secondary
 package manager and performs the same tasks as their counterpart of `APT` or
 `DNF` (for example). With this in mind, `sysupdate` will attempt to update using
 `PackageKit` instead to ensure system stability - Operating Systems such as
-**KDE Neon** will not fetch *all* system updates using `APT` alone and this will
-eventually break the system and neglect important security updates.
+[KDE Neon](https://neon.kde.org/) will not fetch *all* system updates using
+`APT` alone and this will eventually break the system and neglect important
+security updates.
 
 ### Universal Package Managers
 
@@ -106,10 +107,10 @@ commands must be run from that location within your Terminal.
 
 ```bash
 # Build the executable.
-gcc -std=c11 main.c check_network.c update_software.c -o sysupdate
+$ gcc -std=c11 main.c check_network.c update_software.c -o sysupdate
 
 # Launch the program.
-./sysupdate
+$ ./sysupdate
 ```
 
 ## References
