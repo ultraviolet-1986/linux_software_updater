@@ -86,9 +86,10 @@ void update_software()
         // such as KDE Neon.
 
         // Success: PackageKit is installed. Update the system.
-        printf(YELLOW "Update PackageKit System Software" RESET "\n");
+        printf(YELLOW "Refresh PackageKit Software Metadata" RESET "\n");
         system("pkcon refresh force");
         printf("\n");
+        printf(YELLOW "Update PackageKit System Software" RESET "\n");
         system("sudo -S pkcon update");
         printf("\n");
     }
@@ -96,9 +97,10 @@ void update_software()
     {
         // Distribution most likely Ubuntu or compatible.
         // Success: APT is installed. Update the system.
-        printf(YELLOW "Update APT System Software" RESET "\n");
+        printf(YELLOW "Refresh APT Software Metadata" RESET "\n");
         system("sudo -S apt update");
         printf("\n");
+        printf(YELLOW "Update APT System Software" RESET "\n");
         system("sudo -S apt full-upgrade");
         printf("\n");
     }
@@ -114,9 +116,10 @@ void update_software()
     {
         // Distribution most likely Solus or compatible.
         // Success: EOPKG is installed. Update the system.
-        printf(YELLOW "Update EOPKG System Software" RESET "\n");
+        printf(YELLOW "Refresh EOPKG Software Metadata" RESET "\n");
         system("sudo -S eopkg update-repo");
         printf("\n");
+        printf(YELLOW "Update EOPKG System Software" RESET "\n");
         system("sudo -S eopkg upgrade");
         printf("\n");
     }
@@ -132,9 +135,10 @@ void update_software()
     {
         // Distribution most likely Fedora Silverblue or compatible.
         // Success: RPM-OSTree is installed. Update the system.
-        printf(YELLOW "Update RPM-OSTree System Software" RESET "\n");
+        printf(YELLOW "Refresh RPM-OSTree Software Metadata" RESET "\n");
         system("rpm-ostree refresh-md");
         printf("\n");
+        printf(YELLOW "Update RPM-OSTree System Software" RESET "\n");
         system("rpm-ostree upgrade");
         printf("\n");
     }
@@ -150,9 +154,10 @@ void update_software()
     {
         // Distribution most likely openSUSE or compatible.
         // Success: Zypper is installed. Update the system.
-        printf(YELLOW "Update Zypper System Software" RESET "\n");
+        printf(YELLOW "Refresh Zypper Software Metadata" RESET "\n");
         system("sudo -S zypper refresh");
         printf("\n");
+        printf(YELLOW "Update Zypper System Software" RESET "\n");
         system("sudo -S zypper update");
         printf("\n");
     }
