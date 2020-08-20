@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [0.1.x Series](#0.1.x-series)
+- [0.1.x Series](#01x-series)
 
 ## 0.1.x Series
 
