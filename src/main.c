@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     // #############
 
     // Program Metadata.
-    const char *PROGRAM_VERSION = "0.1.6";
+    const char *PROGRAM_VERSION = "0.1.7";
     const char *PROGRAM_URL = "https://github.com/ultraviolet-1986/sysupdate";
 
     // #############

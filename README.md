@@ -60,6 +60,7 @@ attempt to detect these and exit if none are detected.
 - **Pacman** (Arch or compatible)
 - **RPM-OSTree** (Fedora Silverblue or compatible)
 - **XBPS** (Void or compatible)
+- **Yum** (Legacy RHEL / CentOS or compatible (<= 7.x))
 - **Zypper** (SLE / openSUSE or compatible)
 
 #### Regarding PackageKit
