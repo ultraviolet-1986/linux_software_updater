@@ -20,16 +20,6 @@
 
 #include "update_software.h"
 
-// ###########
-// # Defines #
-// ###########
-
-// Text formatting.
-#define GREEN "\x1B[32m"
-#define RED "\x1B[31m"
-#define YELLOW "\x1B[33m"
-#define RESET "\x1B[0m"
-
 // #############
 // # Functions #
 // #############
@@ -166,7 +156,7 @@ void update_software()
         // Package manager was not installed on the system.
         printf(RED "ERROR: A supported package manager was not detected." RESET
             "\n");
-        exit(0);
+        exit(127);
     }
 
     // Universal Package Managers: Flatpak.

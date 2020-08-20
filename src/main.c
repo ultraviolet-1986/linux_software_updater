@@ -21,13 +21,6 @@
 #include "check_network.h"
 #include "update_software.h"
 
-// ###########
-// # Defines #
-// ###########
-
-#define RED "\x1B[31m"
-#define RESET "\x1B[0m"
-
 // #############
 // # Functions #
 // #############
@@ -39,19 +32,12 @@ int main(int argc, char *argv[])
     // #############
 
     // Program Metadata.
-    const char *PROGRAM_VERSION = "0.1.5";
+    const char *PROGRAM_VERSION = "0.1.6";
     const char *PROGRAM_URL = "https://github.com/ultraviolet-1986/sysupdate";
 
     // #############
     // # Kickstart #
     // #############
-
-    // Terminate program if not running under GNU/Linux.
-    #ifndef __linux__
-        printf(RED "ERROR: This program is intended for use with GNU/Linux."
-            RESET "\n");
-        return 0;
-    #endif
 
     // Parse any given command-line arguments.
     if (argc == 2 && strcmp(argv[1], "--help") == 0 ||
@@ -79,17 +65,17 @@ int main(int argc, char *argv[])
         return 0;
     }
     else if (argc == 2 && strcmp(argv[1], "--help") != 0 ||
-                argc == 2 && strcmp(argv[1], "--version") != 0 ||
-                argc == 2 && strcmp(argv[1], "-h") != 0 ||
-                argc == 2 && strcmp(argv[1], "-v") != 0)
+        argc == 2 && strcmp(argv[1], "--version") != 0 ||
+        argc == 2 && strcmp(argv[1], "-h") != 0 ||
+        argc == 2 && strcmp(argv[1], "-v") != 0)
     {
         printf(RED "ERROR: An invalid argument was provided." RESET "\n");
-        return 0;
+        return 1;
     }
     else if (argc >= 3)
     {
         printf(RED "ERROR: Too many arguments were provided." RESET "\n");
-        return 0;
+        return 1;
     }
 
     // Detect Internet connection and proceed.
@@ -103,10 +89,12 @@ int main(int argc, char *argv[])
     {
         printf(RED "ERROR: An active Internet connection is required." RESET
             "\n");
+        return 1;
     }
     else
     {
         printf(RED "ERROR: An unknown error occurred." RESET "\n");
+        return 1;
     }
 
     return 0;
