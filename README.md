@@ -28,8 +28,8 @@ system using Fedora's update manager.
 Native package managers are tested for initially, and in the absence of these
 the program will stop. This is to ensure that this program is only operating in
 a familiar environment and will not attempt to update an operating system which
-is unknown. New Linux distribution and package management software will be added
-on an ad-hoc basic as and when they can be thoroughly tested.
+is unknown. New Linux distributions and package management software will be
+added on an ad-hoc basic as and when they can be thoroughly tested.
 
 ## Supported Command-Line Arguments
 
@@ -37,10 +37,10 @@ on an ad-hoc basic as and when they can be thoroughly tested.
 information regarding version, license, and help.
 
 ```bash
-sysupdate -h         # Display help and exit.
-sysupdate -v         # Display version/license information.
-sysupdate --help     # Display help and exit.
-sysupdate --version  # Display version/license information.
+$ sysupdate -h         # Display help and exit.
+$ sysupdate -v         # Display version/license information.
+$ sysupdate --help     # Display help and exit.
+$ sysupdate --version  # Display version/license information.
 ```
 
 ## Currently Supported Software
