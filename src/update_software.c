@@ -41,7 +41,6 @@ void update_software()
     const char *PACMAN_PATH = "/usr/bin/pacman";
     const char *RPM_OSTREE_PATH = "/usr/bin/rpm-ostree";
     const char *XBPS_INSTALL_PATH = "usr/bin/xbps-install";
-    const char *YUM_PATH = "/usr/bin/yum";
     const char *ZYPPER_PATH = "usr/bin/zypper";
 
     // Universal Package Managers.
@@ -144,14 +143,6 @@ void update_software()
         // Success: XBPS-INSTALL is installed. Update the system.
         printf(YELLOW "Update XBPS System Software" RESET "\n");
         system("sudo -S xbps-install -Su");
-        printf("\n");
-    }
-    else if (access(YUM_PATH, F_OK) != -1)
-    {
-        // Distribution most likely Legacy RHEL or compatible.
-        // Success: Yum is installed. Update the system.
-        printf(YELLOW "Update Yum System Software" RESET "\n");
-        system("sudo -S yum update --refresh");
         printf("\n");
     }
     else if (access(ZYPPER_PATH, F_OK) != -1)

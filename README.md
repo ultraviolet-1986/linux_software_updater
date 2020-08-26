@@ -37,10 +37,10 @@ added on an ad-hoc basic as and when they can be thoroughly tested.
 information regarding version, license, and help.
 
 ```bash
-$ sysupdate -h         # Display help and exit.
-$ sysupdate -v         # Display version/license information.
-$ sysupdate --help     # Display help and exit.
-$ sysupdate --version  # Display version/license information.
+sysupdate -h         # Display help and exit.
+sysupdate -v         # Display version/license information.
+sysupdate --help     # Display help and exit.
+sysupdate --version  # Display version/license information.
 ```
 
 ## Currently Supported Software
@@ -60,7 +60,6 @@ attempt to detect these and exit if none are detected.
 - **Pacman** (Arch or compatible)
 - **RPM-OSTree** (Fedora Silverblue or compatible)
 - **XBPS** (Void or compatible)
-- **Yum** (Legacy RHEL / CentOS or compatible (<= 7.x))
 - **Zypper** (SLE / openSUSE or compatible)
 
 #### Regarding PackageKit
@@ -104,14 +103,14 @@ distribution which has a working `gcc` installation. This program was written in
 a Fedora Silverblue 32 (x86_64) environment with no additional dependencies.
 
 Note that source code is contained within the `src` directory and so these
-commands must be run from that location within your Terminal.
+commands must be run from that location within your Terminal (as current user).
 
 ```bash
 # Build the executable.
-$ gcc -std=c11 main.c check_network.c update_software.c -o sysupdate
+gcc -std=c11 main.c check_network.c update_software.c -o sysupdate
 
 # Launch the program.
-$ ./sysupdate
+./sysupdate
 ```
 
 ## References
