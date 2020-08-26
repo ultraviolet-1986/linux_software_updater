@@ -8,6 +8,7 @@
 
 ### 0.1.7 Currently in Development
 
+- Adopted Linux Kernel C style syntax.
 - Corrected variables for `anaconda/miniconda` to indicate their mutability.
 - Updated `RPM-OSTree` management. Now the cache will be cleared before new
   metadata is downloaded. This will ensure that all current updates are detected

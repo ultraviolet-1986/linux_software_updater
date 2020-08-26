@@ -115,6 +115,9 @@ gcc -std=c11 main.c check_network.c update_software.c -o sysupdate
 
 ## References
 
+- **Linux kernel coding style**
+  - <https://www.kernel.org/doc/html/v4.10/process/coding-style.html>
+
 - **`check_network.h`** / **`check_network.c`**
   - <https://bbs.archlinux.org/viewtopic.php?id=213878>
 
