@@ -49,18 +49,18 @@ void update_software()
     const char *SNAP_PATH = "/usr/bin/snap";
 
     // Build the Anaconda 3 executable string (user-installed).
-    char *ANACONDA3_PATH_INCOMPLETE = "/anaconda3/bin/conda";
-    char *ANACONDA3_PATH = malloc(strlen(HOME) +
-        strlen(ANACONDA3_PATH_INCOMPLETE) * sizeof(char) + 1);
-    strcpy(ANACONDA3_PATH, HOME);
-    strcat(ANACONDA3_PATH, ANACONDA3_PATH_INCOMPLETE);
+    char *anaconda3_path_incomplete = "/anaconda3/bin/conda";
+    char *anaconda3_path = malloc(strlen(HOME) +
+        strlen(anaconda3_path_incomplete) * sizeof(char) + 1);
+    strcpy(anaconda3_path, HOME);
+    strcat(anaconda3_path, anaconda3_path_incomplete);
 
     // Build the Miniconda 3 executable string (user-installed).
-    char *MINICONDA3_PATH_INCOMPLETE = "/miniconda3/bin/conda";
-    char *MINICONDA3_PATH = malloc(strlen(HOME) +
-        strlen(MINICONDA3_PATH_INCOMPLETE) * sizeof(char) + 1);
-    strcpy(MINICONDA3_PATH, HOME);
-    strcat(MINICONDA3_PATH, MINICONDA3_PATH_INCOMPLETE);
+    char *miniconda3_path_incomplete = "/miniconda3/bin/conda";
+    char *miniconda3_path = malloc(strlen(HOME) +
+        strlen(miniconda3_path_incomplete) * sizeof(char) + 1);
+    strcpy(miniconda3_path, HOME);
+    strcat(miniconda3_path, miniconda3_path_incomplete);
 
     // ClamAV Antivirus.
     const char *FRESHCLAM_PATH = "/usr/bin/freshclam";
@@ -187,8 +187,8 @@ void update_software()
     }
 
     // Update an Anaconda/Miniconda 3 installation.
-    if (access(ANACONDA3_PATH, F_OK) != -1 ||
-        access(MINICONDA3_PATH, F_OK) != -1)
+    if (access(anaconda3_path, F_OK) != -1 ||
+        access(miniconda3_path, F_OK) != -1)
     {
         // Success: Anaconda 3 is installed. Update packages.
         printf(YELLOW "Update Anaconda/Miniconda 3 Python Distribution" RESET
