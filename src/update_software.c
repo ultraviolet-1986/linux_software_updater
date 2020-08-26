@@ -80,6 +80,7 @@ void update_software()
         printf(YELLOW "Refresh PackageKit Software Metadata" RESET "\n");
         system("pkcon refresh force");
         printf("\n");
+
         printf(YELLOW "Update PackageKit System Software" RESET "\n");
         system("sudo -S pkcon update");
         printf("\n");
@@ -91,6 +92,7 @@ void update_software()
         printf(YELLOW "Refresh APT Software Metadata" RESET "\n");
         system("sudo -S apt update");
         printf("\n");
+
         printf(YELLOW "Update APT System Software" RESET "\n");
         system("sudo -S apt full-upgrade");
         printf("\n");
@@ -110,6 +112,7 @@ void update_software()
         printf(YELLOW "Refresh EOPKG Software Metadata" RESET "\n");
         system("sudo -S eopkg update-repo");
         printf("\n");
+
         printf(YELLOW "Update EOPKG System Software" RESET "\n");
         system("sudo -S eopkg upgrade");
         printf("\n");
@@ -126,9 +129,14 @@ void update_software()
     {
         // Distribution most likely Fedora Silverblue or compatible.
         // Success: RPM-OSTree is installed. Update the system.
+        printf(YELLOW "Clear RPM-OSTree Software Metadata" RESET "\n");
+        system("rpm-ostree cleanup -m");
+        printf("\n");
+
         printf(YELLOW "Refresh RPM-OSTree Software Metadata" RESET "\n");
         system("rpm-ostree refresh-md");
         printf("\n");
+
         printf(YELLOW "Update RPM-OSTree System Software" RESET "\n");
         system("rpm-ostree upgrade");
         printf("\n");
@@ -156,6 +164,7 @@ void update_software()
         printf(YELLOW "Refresh Zypper Software Metadata" RESET "\n");
         system("sudo -S zypper refresh");
         printf("\n");
+        
         printf(YELLOW "Update Zypper System Software" RESET "\n");
         system("sudo -S zypper update");
         printf("\n");

@@ -10,6 +10,10 @@
 
 - Included support for `yum`, this is to allow usage of this program on legacy
   RHEL or CentOS systems (<= 7.x).
+- Corrected variables for `anaconda/miniconda` to indicate their mutability.
+- Updated `RPM-OSTree` management. Now the cache will be cleared before new
+  metadata is downloaded. This will ensure that all current updates are detected
+  and applied.
 
 ### 0.1.6 Released Thursday 20th August 2020
 
