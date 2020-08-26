@@ -13,6 +13,7 @@
 - Updated `RPM-OSTree` management. Now the cache will be cleared before new
   metadata is downloaded. This will ensure that all current updates are detected
   and applied.
+- Optimised argument parsing logic.
 
 ### 0.1.6 Released Thursday 20th August 2020
 
