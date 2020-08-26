@@ -129,11 +129,8 @@ void update_software()
     {
         // Distribution most likely Fedora Silverblue or compatible.
         // Success: RPM-OSTree is installed. Update the system.
-        printf(YELLOW "Clear RPM-OSTree Software Metadata" RESET "\n");
+        printf(YELLOW "Clear/Refresh RPM-OSTree Software Metadata" RESET "\n");
         system("rpm-ostree cleanup -m");
-        printf("\n");
-
-        printf(YELLOW "Refresh RPM-OSTree Software Metadata" RESET "\n");
         system("rpm-ostree refresh-md");
         printf("\n");
 
@@ -164,7 +161,7 @@ void update_software()
         printf(YELLOW "Refresh Zypper Software Metadata" RESET "\n");
         system("sudo -S zypper refresh");
         printf("\n");
-        
+
         printf(YELLOW "Update Zypper System Software" RESET "\n");
         system("sudo -S zypper update");
         printf("\n");
