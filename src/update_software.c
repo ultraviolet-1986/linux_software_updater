@@ -112,12 +112,8 @@ void update_software()
                 printf("\n");
 
         } else if (access(RPM_OSTREE_PATH, F_OK) != -1) {
-                printf(YELLOW "Clear/Refresh RPM-OSTree Software Metadata" RESET "\n");
-                system("rpm-ostree cleanup -m");
-                system("rpm-ostree refresh-md");
-                printf("\n");
-
                 printf(YELLOW "Update RPM-OSTree System Software" RESET "\n");
+                system("rpm-ostree cleanup -m");
                 system("rpm-ostree upgrade");
                 printf("\n");
 
