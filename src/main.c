@@ -68,7 +68,6 @@ int main(int argc, char *argv[])
         } else if (argc >= 3) {
                 printf(RED "ERROR: Too many arguments were provided." RESET "\n");
                 return 1;
-
         }
 
         /* CHECK INTERNET CONNECTION AND PROCEED */
