@@ -42,8 +42,7 @@ int check_network()
 	// # KICKSTART #
 	// #############
 
-	if (connect(sockfd, (struct sockaddr *) &addr, sizeof(addr)) != 0)
-	{
+	if (connect(sockfd, (struct sockaddr *) &addr, sizeof(addr)) != 0) {
 		return 1; /* ERROR */
 
 	} else {
