@@ -31,26 +31,26 @@
 
 int check_network()
 {
-        // #############
-        // # VARIABLES #
-        // #############
+	// #############
+	// # VARIABLES #
+	// #############
 
-        int sockfd = socket(AF_INET, SOCK_STREAM, 0);
-        struct sockaddr_in addr = { AF_INET, htons(80), inet_addr("1.1.1.1") };
+	int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+	struct sockaddr_in addr = { AF_INET, htons(80), inet_addr("1.1.1.1") };
 
-        // #############
-        // # KICKSTART #
-        // #############
+	// #############
+	// # KICKSTART #
+	// #############
 
-        if (connect(sockfd, (struct sockaddr *) &addr, sizeof(addr)) != 0)
-        {
-                return 1; /* ERROR */
+	if (connect(sockfd, (struct sockaddr *) &addr, sizeof(addr)) != 0)
+	{
+		return 1; /* ERROR */
 
-        } else {
-                return 0; /* SUCCESS */
-        }
+	} else {
+		return 0; /* SUCCESS */
+	}
 
-        close(sockfd);
+	close(sockfd);
 }
 
 // End of File.
