@@ -151,8 +151,7 @@ void update_software()
 	}
 
 	/* OTHER PACKAGE MANAGERS: ANACONDA/MINICONDA 3 */
-	if (access(anaconda3_path, F_OK) != -1 ||
-		access(miniconda3_path, F_OK) != -1) {
+	if (access(anaconda3_path, F_OK) != -1 || access(miniconda3_path, F_OK) != -1) {
 		printf(YELLOW "Update Anaconda/Miniconda 3 Python Distribution" RESET "\n");
 		system("conda update --all");
 		printf("\n");
