@@ -6,7 +6,7 @@
 
 ## 0.1.x Series
 
-### 0.1.7 Currently in Development
+### 0.1.7 Released Tuesday 1st September 2020
 
 - Adopted Linux Kernel C style syntax with 100 columns.
 - Corrected variables for `anaconda/miniconda` to indicate their mutability.
