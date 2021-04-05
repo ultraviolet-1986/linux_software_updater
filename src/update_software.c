@@ -1,5 +1,5 @@
 /* sysupdate: A program which updates all known package managers.
- * Copyright (C) 2020 William Willis Whinn
+ * Copyright (C) 2021 William Willis Whinn
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -75,21 +75,13 @@ void update_software()
 		 * Neon or CentOS 7 (etc).
 		 */
 
-		printf(YELLOW "Refresh PackageKit Software Metadata" RESET "\n");
-		system("pkcon refresh force");
-		printf("\n");
-
 		printf(YELLOW "Update PackageKit System Software" RESET "\n");
-		system("sudo -S pkcon update");
+		system("pkcon refresh force && sudo -S pkcon update");
 		printf("\n");
 
 	} else if (access(APT_PATH, F_OK) != -1) {
-		printf(YELLOW "Refresh APT Software Metadata" RESET "\n");
-		system("sudo -S apt update");
-		printf("\n");
-
 		printf(YELLOW "Update APT System Software" RESET "\n");
-		system("sudo -S apt full-upgrade");
+		system("sudo -S apt update && sudo -S apt full-upgrade");
 		printf("\n");
 
 	} else if (access(DNF_PATH, F_OK) != -1) {
@@ -98,12 +90,8 @@ void update_software()
 		printf("\n");
 
 	} else if (access(EOPKG_PATH, F_OK) != -1) {
-		printf(YELLOW "Refresh EOPKG Software Metadata" RESET "\n");
-		system("sudo -S eopkg update-repo");
-		printf("\n");
-
 		printf(YELLOW "Update EOPKG System Software" RESET "\n");
-		system("sudo -S eopkg upgrade");
+		system("sudo -S eopkg update-repo && sudo -S eopkg upgrade");
 		printf("\n");
 
 	} else if (access(PACMAN_PATH, F_OK) != -1) {
@@ -122,12 +110,8 @@ void update_software()
 		printf("\n");
 
 	} else if (access(ZYPPER_PATH, F_OK) != -1) {
-		printf(YELLOW "Refresh Zypper Software Metadata" RESET "\n");
-		system("sudo -S zypper refresh");
-		printf("\n");
-
 		printf(YELLOW "Update Zypper System Software" RESET "\n");
-		system("sudo -S zypper update");
+		system("sudo -S zypper refresh && sudo -S zypper update");
 		printf("\n");
 
 	} else {

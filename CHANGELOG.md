@@ -6,6 +6,13 @@
 
 ## 0.1.x Series
 
+### 0.1.9 Currently in Development
+
+- Removed two-step refresh and upgrade code, now the `&&` operator is passed so
+  that if the refreshing of metadata cannot be performed, the upgrade will be
+  skipped and `sysupdate` will continue to search for software managers.
+- Updated file headers to reflect current date.
+
 ### 0.1.7 Released Tuesday 1st September 2020
 
 - Adopted Linux Kernel C style syntax with 100 columns.
