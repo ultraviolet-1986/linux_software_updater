@@ -113,8 +113,7 @@ void update_software()
 
 	} else if (access(RPM_OSTREE_PATH, F_OK) != -1) {
 		printf(YELLOW "Update RPM-OSTree System Software" RESET "\n");
-		system("rpm-ostree cleanup -m");
-		system("rpm-ostree upgrade");
+		system("rpm-ostree cleanup -m && rpm-ostree upgrade");
 		printf("\n");
 
 	} else if (access(XBPS_INSTALL_PATH, F_OK) != -1) {

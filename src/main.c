@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	// #############
 
 	/* PROGRAM METADATA */
-	const char *PROGRAM_VERSION = "0.1.8";
+	const char *PROGRAM_VERSION = "0.1.9";
 	const char *PROGRAM_URL = "https://github.com/ultraviolet-1986/sysupdate";
 
 	// #############
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
 		/* VERSION INFORMATION */
 		} else if (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0) {
 			printf("sysupdate %s\n", PROGRAM_VERSION);
-			printf("Copyright (C) 2020 William Whinn\n");
+			printf("Copyright (C) 2021 William Whinn\n");
 			printf("<%s>\n", PROGRAM_URL);
 			printf("License GPLv3+: GNU GPL version 3 or later "
 				"<https://gnu.org/licenses/gpl.html>.\n");
