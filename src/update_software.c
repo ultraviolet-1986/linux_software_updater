@@ -60,6 +60,13 @@ void update_software()
 	strcpy(miniconda3_path, HOME);
 	strcat(miniconda3_path, miniconda3_path_incomplete);
 
+	/* OTHER PACKAGE MANAGERS: RUSTUP */
+	char *rustup_path_incomplete = "/.cargo/bin/rustup";
+	char *rustup_path = malloc(strlen(HOME) +
+		strlen(rustup_path_incomplete) * sizeof(char) + 1);
+	strcpy(rustup_path, HOME);
+	strcat(rustup_path, rustup_path_incomplete);
+
 	/* OTHER SOTWARE: CLAMAV */
 	const char *FRESHCLAM_PATH = "/usr/bin/freshclam";
 
@@ -137,6 +144,13 @@ void update_software()
 	if (access(anaconda3_path, F_OK) != -1 || access(miniconda3_path, F_OK) != -1) {
 		printf(YELLOW "Update Anaconda/Miniconda 3 Python Distribution" RESET "\n");
 		system("conda update --all");
+		printf("\n");
+	}
+
+	/* OTHER PACKAGE MANAGERS: RUSTUP */
+	if (access(rustup_path, F_OK) != -1) {
+		printf(YELLOW "Update Rust Language Distribution" RESET "\n");
+		system("rustup update");
 		printf("\n");
 	}
 

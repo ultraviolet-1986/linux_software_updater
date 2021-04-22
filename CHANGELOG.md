@@ -12,6 +12,7 @@
   that if the refreshing of metadata cannot be performed, the upgrade will be
   skipped and `sysupdate` will continue to search for software managers.
 - Updated file headers to reflect current date.
+- Included support for the Rust language via `rustup`.
 
 ### 0.1.7 Released Tuesday 1st September 2020
 

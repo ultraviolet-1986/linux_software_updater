@@ -87,7 +87,9 @@ These packages contain additional software which form (for example) additional
 programming languages and version managers.
 
 - **Anaconda/Miniconda 3** (Python, user-installed at `~/anaconda3` or
-  `~/miniconda3`)
+  `~/miniconda3`).
+
+- **rustup** (Rust, user installed at `~/.cargo/bin/rustup`).
 
 ### Additional Software
 
