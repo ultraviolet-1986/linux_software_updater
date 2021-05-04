@@ -39,8 +39,8 @@ void update_software()
 	const char *PACKAGEKIT_PATH = "/usr/bin/pkcon";
 	const char *PACMAN_PATH = "/usr/bin/pacman";
 	const char *RPM_OSTREE_PATH = "/usr/bin/rpm-ostree";
-	const char *XBPS_INSTALL_PATH = "usr/bin/xbps-install";
-	const char *ZYPPER_PATH = "usr/bin/zypper";
+	const char *XBPS_INSTALL_PATH = "/usr/bin/xbps-install";
+	const char *ZYPPER_PATH = "/usr/bin/zypper";
 
 	/* UNIVERSAL PACKAGE MANAGERS */
 	const char *FLATPAK_PATH = "/usr/bin/flatpak";
